@@ -1,0 +1,29 @@
+<section>
+  <header>
+    Organizer: <strong>{{dateService.date | async | moment: 'DD.MM.YYYY'}}</strong>
+    <hr/>
+  </header>
+
+  <main>
+    <ul *ngIf="tasksService.dayTasks.length; else noTasks">
+      <li class="task" *ngFor="let task of tasksService.dayTasks; let idx=index">
+      <span>
+        <strong>{{idx + 1}}</strong>
+        {{task.title}}
+      </span>
+        <button class="btn btn-primary" type="button"
+                (click)="remove(task.date, task.id)">Remove</button>
+      </li>
+
+    </ul>
+    <ng-template #noTasks><p>No tasks this day yet ... </p></ng-template>
+  </main>
+  <footer>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <input type="text" formControlName="title">
+      <button [disabled]="form.invalid"
+        type="submit" class="btn btn-primary btn-block">Add</button>
+    </form>
+  </footer>
+
+</section>
