@@ -8,12 +8,11 @@ import {DateService} from '../shared/date.service';
 })
 export class SelectorComponent {
 
-  constructor(private dateService: DateService) {
+  constructor(public dateService: DateService) {
   }
 
 
   go(dir: number) {
     this.dateService.changeMonth(dir);
-    console.log('dir', dir);
   }
 }

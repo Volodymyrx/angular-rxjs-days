@@ -14,8 +14,8 @@ export class OrganizerComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    private dateService: DateService,
-    private tasksService: TasksService,
+    public dateService: DateService,
+    public tasksService: TasksService,
   ) {
   }
 
